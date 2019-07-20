@@ -1,5 +1,12 @@
-public class Address{
+package deep_clone.Clonable;
+
+public class Address implements Cloneable{
     private String id;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public Address() {
     }

@@ -1,14 +1,18 @@
+package deep_clone.Clonable;
+
 public class Stu implements Cloneable {
     String name;
     String age;
     Address address;
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Stu() {
     }
 
-    public Stu() {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Object clone = this.getAddress().clone();
+        this.setAddress((Address)clone);
+        return super.clone();
     }
 
     public Stu(String name, String age, Address address) {
@@ -40,5 +44,4 @@ public class Stu implements Cloneable {
     public void setAddress(Address address) {
         this.address = address;
     }
-
 }
